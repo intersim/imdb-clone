@@ -1,18 +1,14 @@
 const express = require('express');
 const volleyball = require('volleyball');
-
-const db = require('../db');
-const Actor = require('../db/models/Actor');
+const Sequelize = require('sequelize');
+const { db, Actor } = require('../db');
 
 const app = express();
 
 app.use(volleyball);
 
-app.get('/actors', (req, res, next) => 
-  Actor.findOne()
-  .then(actor => res.send(actor))
-  .catch(next)
-);
+app.use('/api/actors', require('./api/actors'));
+app.use('/api/roles', require('./api/roles'));
 
 db.sync()
 .then(() => 
