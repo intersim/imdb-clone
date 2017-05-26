@@ -5,7 +5,7 @@ module.exports = require('express').Router()
     Actor.findAll({
       where: req.query,
       limit: 50,
-      // include: [ Role ]
+      include: [ Role ]
     })
     .then(actors => res.send(actors))
     .catch(next)  

@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('roles', {
     actor_id: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      primaryKey: true
     },
     movie_id: {
       type: DataTypes.INTEGER,
